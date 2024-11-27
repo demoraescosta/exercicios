@@ -9,13 +9,13 @@ typedef struct
     char nome[50];
     char curso[30];
     int  idade;
-} Aluno;
+} Filme;
 
 const char* ARQUIVO_ALUNOS = "alunos.txt";
 
 void incluir_aluno()
 {
-    Aluno a = {0};
+    Filme a = {0};
 
     FILE* arquivo = fopen(ARQUIVO_ALUNOS, "a");
 
@@ -31,7 +31,7 @@ void incluir_aluno()
 
     printf("Digite o nome do aluno: ");
     fgets(a.nome, sizeof(a.nome), stdin);
-    a.nome[strcspn(a.nome, "\n")] = 0;  // Remove o '\n'
+    a.nome[strcspn(a.nome, "\n")] = 0;
 
     printf("Digite o nome do curso: ");
     fgets(a.curso, sizeof(a.curso), stdin);
@@ -40,7 +40,7 @@ void incluir_aluno()
     printf("Digite a idade do aluno: ");
     scanf("%d", &a.idade);
 
-    // Grava os dados no arquivo separados por vírgulas
+
     fprintf(arquivo, "%d,%s,%s,%d\n", a.matricula, a.nome, a.curso, a.idade);
     fclose(arquivo);
 
@@ -49,7 +49,7 @@ void incluir_aluno()
 
 void excluir_aluno()
 {
-    Aluno a = {0};
+    Filme a = {0};
 
     int matricula  = 0;
     int encontrado = 0;
@@ -97,7 +97,7 @@ void excluir_aluno()
 
 void alterar_alunos()
 {
-    Aluno a = {0};
+    Filme a = {0};
 
     int matricula, encontrado = 0;
 
@@ -154,7 +154,7 @@ void alterar_alunos()
 
 void consultar_alunos()
 {
-    Aluno a = {0};
+    Filme a = {0};
 
     int   matricula, encontrado = 0;
     FILE* arquivo = fopen(ARQUIVO_ALUNOS, "r");
@@ -193,7 +193,7 @@ void consultar_alunos()
 
 void listar_alunos()
 {
-    Aluno a = {0};
+    Filme a = {0};
 
     FILE* arquivo = fopen(ARQUIVO_ALUNOS, "r");
 
@@ -245,7 +245,7 @@ int main()
         exibir_menu();
         printf("escolha uma opcao: ");
         scanf("%d", &opcao);
-        getchar();  // Limpa o buffer
+        getchar();
 
         switch (opcao)
         {
