@@ -1,0 +1,1 @@
+gcc exercicio_*.c
